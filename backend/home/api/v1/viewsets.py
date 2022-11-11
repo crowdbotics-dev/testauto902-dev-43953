@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Ruye
-from .serializers import RuyeSerializer
+from home.models import Ruye,Test
+from .serializers import RuyeSerializer,TestSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -37,3 +37,8 @@ class RuyeViewSet(viewsets.ModelViewSet):
     serializer_class = RuyeSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Ruye.objects.all()
+
+class TestViewSet(viewsets.ModelViewSet):
+    serializer_class = TestSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Test.objects.all()
